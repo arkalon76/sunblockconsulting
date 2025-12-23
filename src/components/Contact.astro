@@ -1,5 +1,6 @@
 ---
 ---
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 <section id="contact" class="section contact">
   <div class="container contact-container">
     <div class="contact-text">
@@ -28,6 +29,13 @@
             <span>Message</span>
             <textarea name="message" rows="5" placeholder="Tell me about your team..." required></textarea>
         </label>
+        
+        <!-- Honeypot field -->
+        <input type="text" name="_gotcha" style="display:none" />
+
+        <!-- Cloudflare Turnstile widget -->
+        <div class="cf-turnstile" data-sitekey="0x4AAAAAACIyOTZDYdDkA_wI"></div>
+
         <div id="form-status" class="form-status"></div>
         <button type="submit" id="submit-btn" class="btn">Send Message</button>
     </form>
