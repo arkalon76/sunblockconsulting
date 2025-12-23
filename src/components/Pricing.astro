@@ -1,0 +1,116 @@
+---
+---
+<section id="pricing" class="section pricing">
+  <div class="container">
+    <div class="pricing-card">
+      <div class="pricing-header">
+        <h2>Transparent Pricing</h2>
+        <p>Simple, flat rate for high-value engagement.</p>
+      </div>
+      
+      <div class="price-tag">
+        <span class="currency">€</span>
+        <span class="amount">650</span>
+        <span class="period">/ day</span>
+      </div>
+      
+      <div class="pricing-features">
+        <ul>
+          <li>Full-day dedicated focus</li>
+          <li>On-site or remote availability</li>
+          <li>Flexible engagement terms</li>
+          <li>Direct access & uncompromising quality</li>
+        </ul>
+      </div>
+      
+      <a href="#contact" class="btn">Check Availability</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .pricing {
+    position: relative;
+    /* subtle background texture or gradient */
+    background: radial-gradient(circle at 10% 90%, rgba(255, 107, 107, 0.05) 0%, transparent 50%);
+  }
+
+  .pricing-card {
+    background: linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 24px;
+    padding: 4rem 2rem;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Decorative sheen */
+  .pricing-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 217, 61, 0.5), transparent);
+  }
+
+  .pricing-header h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .pricing-header p {
+    color: var(--color-text-muted);
+    margin-bottom: 3rem;
+  }
+
+  .price-tag {
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--color-primary);
+    margin-bottom: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    gap: 0.25rem;
+  }
+
+  .currency {
+    font-size: 2rem;
+    align-self: flex-start;
+  }
+
+  .period {
+    font-size: 1.25rem;
+    color: var(--color-text-muted);
+    font-weight: 400;
+  }
+
+  .pricing-features ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 3rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem 3rem;
+  }
+
+  .pricing-features li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+  }
+
+  .pricing-features li::before {
+    content: '✓';
+    color: var(--color-secondary);
+    font-weight: bold;
+  }
+</style>

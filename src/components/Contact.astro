@@ -1,0 +1,176 @@
+---
+---
+<section id="contact" class="section contact">
+  <div class="container contact-container">
+    <div class="contact-text">
+        <h2>Let's <span>Collaborate</span></h2>
+        <p>Ready to improve your team's operational stability? Reach out to discuss your needs.</p>
+        
+        <div class="contact-methods">
+            <div class="method">
+                <h3>Email</h3>
+                <a href="mailto:hello@sunblock.consulting">hello@sunblock.consulting</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Replace {YOUR_FORMSPREE_ID} with your actual Formspree endpoint ID -->
+    <form id="contact-form" class="contact-form" action="https://formspree.io/f/mpqabyba" method="POST">
+        <label>
+            <span>Name</span>
+            <input type="text" name="name" placeholder="John Doe" required />
+        </label>
+        <label>
+            <span>Email</span>
+            <input type="email" name="_replyto" placeholder="john@company.com" required />
+        </label>
+        <label>
+            <span>Message</span>
+            <textarea name="message" rows="5" placeholder="Tell me about your team..." required></textarea>
+        </label>
+        <div id="form-status" class="form-status"></div>
+        <button type="submit" id="submit-btn" class="btn">Send Message</button>
+    </form>
+  </div>
+</section>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement;
+  const status = document.getElementById('form-status');
+  const button = document.getElementById('submit-btn');
+
+  if (form && status && button) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const formData = new FormData(form);
+      button.innerText = 'Sending...';
+      (button as HTMLButtonElement).disabled = true;
+
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: formData,
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+
+        if (response.ok) {
+          status.innerHTML = "Thanks! Your message has been sent.";
+          status.classList.add('success');
+          form.reset();
+        } else {
+          const data = await response.json();
+          if (Object.hasOwn(data, 'errors')) {
+            status.innerHTML = data["errors"].map((error: any) => error["message"]).join(", ");
+          } else {
+            status.innerHTML = "Oops! There was a problem submitting your form";
+          }
+          status.classList.add('error');
+        }
+      } catch (error) {
+        status.innerHTML = "Oops! There was a problem submitting your form";
+        status.classList.add('error');
+      } finally {
+        button.innerText = 'Send Message';
+        (button as HTMLButtonElement).disabled = false;
+      }
+    });
+  }
+</script>
+
+<style>
+  .contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .contact-text h2 {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .contact-text h2 span {
+    color: var(--color-primary);
+  }
+
+  .contact-text p {
+    font-size: 1.125rem;
+    color: var(--color-text-muted);
+    margin-bottom: 3rem;
+  }
+
+  .method h3 {
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-text-muted);
+    margin-bottom: 0.5rem;
+  }
+
+  .method a {
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+
+  .contact-form {
+    background: var(--color-surface);
+    padding: 2.5rem;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  label span {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--color-text-muted);
+  }
+
+  input, textarea {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    color: var(--color-text);
+    font-family: inherit;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+  }
+
+  input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+  }
+
+  .form-status {
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+  }
+
+  .form-status.success {
+    color: #4ade80;
+  }
+
+  .form-status.error {
+    color: #f87171;
+  }
+
+  @media (max-width: 768px) {
+    .contact-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+  }
+</style>

@@ -1,0 +1,68 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Legal - Sunblock Consulting">
+  <Header />
+  <main class="container page-content">
+    <h1>Legal / Impressum</h1>
+    
+    <section>
+      <h2>Sunblock Consulting</h2>
+      <p>
+        [Address Line 1]<br/>
+        [City, Postal Code]<br/>
+        [Country]<br/>
+      </p>
+      <p>
+        <strong>Email:</strong> hello@sunblock.consulting<br/>
+        <strong>VAT ID:</strong> [Insert VAT ID]
+      </p>
+    </section>
+
+    <section>
+        <h2>Privacy Policy</h2>
+        <p>This is a static website. We do not collect personal data via cookies. Any data submitted via the contact form is used solely for communication purposes.</p>
+    </section>
+
+    <div style="margin-top: 3rem;">
+        <a href="/" class="btn-back">&larr; Back to Home</a>
+    </div>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .page-content {
+    padding-top: 120px;
+    min-height: 80vh;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: var(--color-primary);
+  }
+
+  section {
+    margin-bottom: 3rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--color-text);
+  }
+
+  p {
+    color: var(--color-text-muted);
+    max-width: 800px;
+  }
+
+  .btn-back {
+    color: var(--color-accent);
+    font-weight: 500;
+  }
+</style>

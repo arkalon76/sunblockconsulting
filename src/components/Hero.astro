@@ -1,0 +1,97 @@
+---
+---
+<section class="hero">
+  <div class="container hero-content">
+    <div class="hero-text">
+        <h1 class="hero-title">
+            Build Stable, <br/>
+            High-Performing <br/>
+            <span class="text-gradient">Engineering Teams</span>
+        </h1>
+        <p class="hero-subtitle">
+            Senior technical advisory for startups and scaleups. I help you build the team, set up the pipeline, and ensure operational stability.
+        </p>
+        <div class="hero-actions">
+            <a href="#contact" class="btn">Start the Conversation</a>
+            <a href="#services" class="link-secondary">Explore Focus Areas &rarr;</a>
+        </div>
+    </div>
+  </div>
+  <div class="hero-bg"></div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    padding-top: 80px; /* Space for fixed header */
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 10;
+  }
+
+  .hero-text {
+    max-width: 700px;
+  }
+
+  .hero-title {
+    font-size: clamp(3rem, 8vw, 5rem);
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+  }
+
+  .hero-subtitle {
+    font-size: 1.25rem;
+    color: var(--color-text-muted);
+    margin-bottom: 2.5rem;
+    max-width: 500px;
+    line-height: 1.6;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+  }
+
+  .link-secondary {
+    color: var(--color-text);
+    font-weight: 500;
+  }
+
+  .link-secondary:hover {
+    color: var(--color-primary);
+  }
+
+  /* Abstract Background Effect */
+  .hero-bg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 60%;
+    height: 100%;
+    background: radial-gradient(circle at 70% 30%, rgba(255, 107, 107, 0.15) 0%, transparent 60%),
+                radial-gradient(circle at 80% 80%, rgba(255, 217, 61, 0.1) 0%, transparent 50%);
+    filter: blur(60px);
+    pointer-events: none;
+    z-index: 0;
+  }
+  
+  @media (max-width: 768px) {
+    .hero {
+        min-height: auto;
+        padding-bottom: 5rem;
+    }
+    
+    .hero-actions {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+  }
+</style>
