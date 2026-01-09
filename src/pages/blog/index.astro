@@ -1,0 +1,59 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog')).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+---
+
+<Layout title="Blog" description="Read our latest articles.">
+	<section class="container section">
+		<h1>Blog</h1>
+		<ul class="posts-list">
+			{
+				posts.map((post) => (
+					<li>
+						<a href={`/blog/${post.slug}/`}>
+							<h4 class="title">{post.data.title}</h4>
+							<p class="date">
+								{post.data.pubDate.toLocaleDateString('en-us', {
+									year: 'numeric',
+									month: 'short',
+									day: 'numeric',
+								})}
+							</p>
+						</a>
+					</li>
+				))
+			}
+		</ul>
+	</section>
+</Layout>
+
+<style>
+	.posts-list {
+		list-style-type: none;
+		padding: 0;
+	}
+	.posts-list li {
+		margin-bottom: 2rem;
+		border-bottom: 1px solid #333;
+		padding-bottom: 1rem;
+	}
+    .posts-list li:last-child {
+        border-bottom: none;
+    }
+	.title {
+		margin: 0;
+		color: var(--color-primary);
+		font-size: 1.5rem;
+	}
+	.date {
+		margin: 0;
+		color: var(--color-text-muted);
+	}
+	.posts-list a:hover .title {
+		text-decoration: underline;
+	}
+</style>

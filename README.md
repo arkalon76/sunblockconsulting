@@ -38,6 +38,22 @@ All commands are run from the root of the project, from a terminal:
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
 
+## ✍️ How to write a blog post
+
+1.  Create a new markdown file in `src/content/blog/`. The filename will become the slug (e.g., `my-post.md` -> `/blog/my-post`).
+2.  Add the following frontmatter at the top of the file:
+
+```markdown
+---
+title: 'My New Post'
+description: 'A brief description for SEO.'
+pubDate: 'Jan 01 2024'
+heroImage: '/placeholder-hero.jpg'
+---
+```
+
+3.  Write your content in markdown below the frontmatter.
+
 ## 👀 Want to learn more?
 
 Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
