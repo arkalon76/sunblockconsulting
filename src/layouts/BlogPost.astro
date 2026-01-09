@@ -10,6 +10,7 @@ const { title, description, pubDate, updatedDate, heroImage, heroImageAlt } = As
 <Layout title={title} description={description} image={heroImage}>
 	<article class="container section">
 		<div class="prose">
+			<a href="/blog" class="back-link">&larr; Back to Blog</a>
 			<div class="hero-image">
 				{heroImage && <img width={1020} height={510} src={heroImage} alt={heroImageAlt || ''} />}
 			</div>
@@ -75,5 +76,16 @@ const { title, description, pubDate, updatedDate, heroImage, heroImageAlt } = As
 	}
 	.last-updated-on {
 		font-style: italic;
+	}
+	.back-link {
+		display: inline-block;
+		margin-bottom: 2rem;
+		color: var(--color-accent);
+		font-weight: 500;
+		transition: transform 0.2s;
+	}
+	.back-link:hover {
+		transform: translateX(-4px);
+		opacity: 1;
 	}
 </style>
